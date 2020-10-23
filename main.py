@@ -7,7 +7,7 @@ import pyttsx3 as speech
 from PySimpleGUI import Window
 
 
-def get_window(window_type) -> Window:
+def get_window(window_type: str) -> Window:
     """returns a window object basing on the desired type"""
     if window_type == 'choice':
         layout = get_layout('choice')
@@ -21,7 +21,7 @@ def get_window(window_type) -> Window:
     return window
 
 
-def get_layout(layout_type) -> list:
+def get_layout(layout_type: str) -> list:
     """returns a layout schema for window creation"""
     if layout_type == 'choice':
         layout = \
