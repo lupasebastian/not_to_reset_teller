@@ -57,11 +57,15 @@ def get_layout(layout_type: str) -> list:
 
 def ask_for_decision() -> str:
     """asks user on how they would like to be informed"""
-    event, decision = get_window('choice').read()
+    choice_window = get_window('choice')
+    event, decision = choice_window.read()
     while True:
-        if decision[0].casefold() in ('1', '2'):
+        if decision[0] in ('1', '2'):
             return decision[0]
-        get_window('wrong_choice').read()
+        choice_window.close()
+        window_wrong_choice = get_window('wrong_choice')
+        window_wrong_choice.read()
+        window_wrong_choice.close()
         event, decision = get_window('choice').read()
 
 
